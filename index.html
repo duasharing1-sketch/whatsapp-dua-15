@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Share Du'a on WhatsApp</title>
+</head>
+<body>
+<a id="manualLink" href="#" target="_blank" style="display:none;">Open WhatsApp</a>
+
+<script>
+const encodedText = "%2AYa%20Allah%2C%20make%20me%20grateful%20and%20generous%2A%0A%0AThis%20powerful%20du%E2%80%99a%20calls%20upon%20Allah%20%E2%B7%80%20%E2%80%94%20by%20His%20Names%20Ash-Shak%C5%ABr%20%28The%20Most%20Appreciative%29%20and%20Al-Wahh%C4%81b%20%28The%20Bestower%20of%20Gifts%29%20%E2%80%94%20to%20fill%20our%20hearts%20with%20sincere%20gratitude%20for%20His%20countless%20blessings.%20It%20asks%20for%20an%20increase%20in%20generosity%20that%20flows%20beyond%20words%20into%20meaningful%20actions%2C%20so%20every%20gift%20we%20receive%20becomes%20a%20means%20of%20pleasing%20Him%20and%20benefiting%20others.%0A%0ABecause%20true%20gratitude%20is%20not%20only%20felt%2C%20but%20shown%20in%20how%20we%20give%20and%20share.%0A%E2%80%9CIf%20you%20are%20grateful%2C%20I%20will%20surely%20increase%20you.%E2%80%9D%20%E2%80%94%20Qur%E2%80%99an%2014%3A7%0A%0A*Ya%20Allah%20%28O%20Allah%29%2C%20Ya%20Shakoor%20%28O%20Most%20Appreciative%29%2C%20Ya%20Wahhab%20%28O%20Bestower%20of%20Gifts%29%2C%20make%20us%20among%20those%20who%20are%20sincerely%20grateful%20to%20You%20for%20all%20Your%20countless%20blessings.%20We%20acknowledge%20Your%20boundless%20generosity%20towards%20us%2C%20so%20increase%20us%20in%20generosity%20as%20well%2C%20and%20include%20us%20among%20those%20who%20are%20truly%20generous.%20Inspire%20our%20hearts%20to%20show%20this%20gratitude%2C%20not%20just%20through%20words%20but%20through%20our%20actions.%20Help%20us%20use%20every%20blessing%20and%20gift%20You%20give%20us%20in%20ways%20that%20please%20You.*%0A%0AThis%20du'a%20is%20part%20of%20*The%20Supplication%20of%20Infinite%20Blessings*%20%E2%80%94%20a%20powerful%20collection%20of%20heartfelt%20supplications%20designed%20to%20benefit%20you%20in%20both%20this%20life%20and%20the%20next.%0A%0A*At%20Dua%20Sharing%2C%20our%20mission%20is%20simple*%3A%20%0ATo%20encourage%20sincere%20du'a%2C%20meaningful%20sharing%2C%20and%20to%20multiply%20blessings%20through%20a%20growing%20global%20chain%20of%20people%20making%20dua%20for%20one%20another%20every%20single%20day.%0A%0AAs%20Rasulullah%20%E2%80%BF%20said%3A%20%0A%0A%E2%80%9CThe%20supplication%20of%20a%20Muslim%20for%20his%20brother%20in%20his%20absence%20will%20certainly%20be%20answered.%20Every%20time%20he%20makes%20a%20supplication%20for%20good%20for%20his%20brother%2C%20the%20angel%20appointed%20for%20this%20task%20says%3A%20%E2%80%98Ameen!%20And%20may%20it%20be%20for%20you%20too.%E2%80%9D%0A%0AEvery%20post%20we%20share%20is%20taken%20directly%20from%20the%20full%20Supplication%20of%20Infinite%20Blessings%20%E2%80%94%20with%20the%20aim%20of%20moving%20hearts%2C%20inspiring%20action%2C%20and%20reminding%20us%20all%20of%20what%20truly%20matters.%0A%0AAccess%20the%20full%20supplication%20in%20both%20English%20and%20Arabic%20at%3A%20https%3A%2F%2Fwww.duasharing.com%0A%0AWhen%20you%20share%20this%20post%2C%20you%E2%80%99re%20not%20simply%20sharing%20a%20dua.%20You%E2%80%99re%20opening%20the%20door%20to%20millions%20of%20people%20making%20sincere%20du'a%20for%20you%20%E2%80%94%20with%20the%20Malaika%20%28Angels%29%20themselves%20saying%20%E2%80%9CAmeen%E2%80%9D%20to%20every%20single%20one.%0A%0AMay%20Allah%20accept%20it%20from%20you%2C%20and%20from%20everyone%20it%20reaches%20through%20you.%0A%0AAmeen";
+
+const waProtocol = "whatsapp://send?text=" + encodedText;
+const waWeb = "https://wa.me/?text=" + encodedText;
+
+const manualLink = document.getElementById('manualLink');
+manualLink.href = waWeb;
+
+async function tryShare() {
+  if (navigator.share) {
+    try { await navigator.share({ text: decodeURIComponent(encodedText) }); return; }
+    catch (err) { console.warn(err); }
+  }
+  try { window.location.href = waProtocol; setTimeout(() => { window.location.href = waWeb; }, 1200); }
+  catch (e) { window.location.href = waWeb; }
+}
+
+window.addEventListener('load', tryShare);
+</script>
+</body>
+</html>
